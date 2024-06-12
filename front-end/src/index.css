@@ -1,0 +1,373 @@
+
+/* fonts import  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
+/* tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.body {
+  background-color: #111010; /* Replace with your desired background color */
+}
+
+@layer components {
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .input {
+    @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-gray pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-gray max-sm:rounded-full;
+  }
+
+  .header-transparent {
+    background: transparent;
+  }
+
+
+}
+
+@layer utilities {
+  .max-container {
+    padding: 0 20px; /* Add padding to the left and right sides */
+  }
+}
+
+@layer utilities {
+  .padding {
+    @apply sm:px-16 px-8 sm:py-24 py-12;
+  }
+
+  .padding-x {
+    @apply sm:px-16 px-8;
+  }
+
+  .padding-y {
+    @apply sm:py-24 py-12;
+  }
+
+  .padding-l {
+    @apply sm:pl-16 pl-8;
+  }
+
+  .padding-r {
+    @apply sm:pr-16 pr-8;
+  }
+
+  .padding-t {
+    @apply sm:pt-24 pt-12;
+  }
+
+  .padding-b {
+    @apply sm:pb-24 pb-12;
+  }
+
+  .info-text {
+    @apply font-montserrat text-slate-gray text-lg leading-7;
+  }
+}
+
+/* modal styles */
+
+.modal.open {
+  display: flex;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #555; /* Dark gray for close button */
+  font-size: 20px;
+}
+
+/* Add the following styles for the modal content */
+.modal-content-inner {
+  color: #f1eeee; /* Dark text color */
+}
+
+.modal-content-inner a:hover {
+  text-decoration: underline;
+}
+
+/* hero styles */
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjust the height as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+  margin-top: -2.5%;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff; /* Adjust text color */
+  font-family: 'Montserrat', sans-serif; /* Add your desired font-family */
+}
+
+.hero-content h1 {
+  font-size: 2em; /* Adjust the font size */
+}
+
+/* Apply the fading effect only to the background image */
+.hero-container.fade-out {
+  background-image: none;
+  transition: background-image 0s ease-in-out;
+}
+
+.register-hero-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Make the height auto to maintain aspect ratio */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 5%;
+  overflow: hidden; /* Ensure the video doesn't overflow */
+  z-index: 1; /* Set a lower z-index to ensure it's below other content */
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-item {
+  margin-right: 12px; /* Adjust the margin as needed */
+}
+
+.requirements-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.requirements {
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 0 10px;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Flipping Animation */
+.flipping-card {
+  width: 300px; /* Increase card width */
+  height: 400px; /* Increase card height */
+  perspective: 1000px;
+}
+
+.flipping-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.flipping-card:hover .flipping-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flipping-card-front, .flipping-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flipping-card-front {
+  background-color: rgba(0, 0, 0, 0.2); /* Set background color */
+  color: black;
+}
+
+.flipping-card-back {
+  background-color: #333;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* button animation */
+.button-container {
+  position: absolute;
+  bottom: 10px; /* Adjust the distance from the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn {
+  font-family: sans-serif, arial;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  background: none;
+  color: #e0e0e9;
+  cursor: pointer;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  margin-bottom: 5%;
+  bottom: 0px;
+  left: 0px;
+  width: 0px;
+  height: -2%;
+  background: #101011;
+  border-radius: 20px;
+  transform-origin: left bottom;
+  transition-property: width height;
+  transition-duration: 0.3s;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+/* Loader Component Styles */
+.loader{
+  -webkit-perspective:700px;
+  perspective: 700px;
+}
+
+.loader>span{
+  font-size: 100px;
+  font-family: "franklin gothic medium",sans-serif;
+  display: inline-block;
+  animation:flip 3.6s infinite linear;
+  transform-origin:0 70%;
+  transform-style:preserve-3d;
+  -webkit-transform-style:preserve-3d;
+}
+
+@keyframes flip{
+  35%{
+    transform: rotateX(360deg);
+  }
+  100%{
+    transform: rotateX(360deg);
+  }
+}
+
+
+.loader>span:nth-child(even){
+  color:white;
+
+}
+
+.loader>span:nth-child(2){
+  animation-delay: 0.3s;
+}
+
+.loader>span:nth-child(3){
+  animation-delay: 0.6s;
+}
+
+.loader>span:nth-child(4){
+  animation-delay: 0.9s;
+}
+
+.loader>span:nth-child(5){
+  animation-delay: 1.2s;
+}
+
+.loader>span:nth-child(6){
+  animation-delay: 1.5s
+}
+
+.loader>span:nth-child(7){
+  animation-delay: 1.8s
+}
+.loader>span:nth-child(8){
+  animation-delay: 2.1s
+}
+.loader>span:nth-child(9){
+  animation-delay: 2.4s
+}
+.loader>span:nth-child(10){
+  animation-delay: 2.7s
+}
+.loader>span:nth-child(11){
+  animation-delay: 3.0s
+}
+.loader>span:nth-child(12){
+  animation-delay: 3.3s
+}
+
+.loading{
+  font-size: 20px;
+  font-weight: 600;
+}
+.loaders{
+  display: flex;
+
+}
+#dots{
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "franklin gothic medium",sans-serif;
+  display: inline-block;
+  animation:flip 1.6s infinite linear;
+  transform-origin:0 70%;
+  transform-style:preserve-3d;
+  -webkit-transform-style:preserve-3d;
+}
+#dots>span:nth-child(2){
+  animation-delay: 0.3s
+}
+#dots>span:nth-child(3){
+  animation-delay: 0.6s
+}
+#dots>span:nth-child(4){
+  animation-delay: 0.9s
+}
+@media (max-width: 760px) {
+  .loader{
+    display: none;
+  }
+} 
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
